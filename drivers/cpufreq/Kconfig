@@ -115,6 +115,12 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	  loading your cpufreq low-level hardware driver, using the
 	  'interactive' governor for latency-sensitive workloads.
 
+config CPU_FREQ_DEFAULT_GOV_LIONHEART
+	bool "lionheart"
+	select CPU_FREQ_GOV_LIONHEART
+	help
+	 Use the CPUFreq governor 'lionheart' as default.
+
 config CPU_FREQ_DEFAULT_GOV_SMARTASSV2
 	bool "smartass2"
 	select CPU_FREQ_GOV_SMARTASSV2
@@ -122,6 +128,14 @@ config CPU_FREQ_DEFAULT_GOV_SMARTASSV2
 		Use the CPUFreq governor 'smartassV2' as default.
 
 endchoice
+
+config CPU_FREQ_GOV_LIONHEART
+	tristate "lionheart"
+	depends on CPU_FREQ
+	help
+	 Use the CPUFreq governor 'lionheart' as default.
+
+	  If in doubt, say N.
 
 config CPU_FREQ_GOV_SMARTASSV2
 	tristate "'smartassV2' cpufreq governor"
