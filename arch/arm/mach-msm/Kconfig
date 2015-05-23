@@ -1954,12 +1954,20 @@ config MSM_DEVFREQ_CPUBW
 	  DDR IB/AB bandwidth votes. This driver provides a SoC topology
 	  agnostic interface to so that some of the devfreq governors can be
 	  shared across SoCs.
-	  
+
+config TURBO_BOOST
+	bool "Enable CPU Turbo boost option"
+	default y
+	help
+	  This option allows overclocking of 2 cores to higher clock rate
+	  than stock maximum.  When more than 2 cores are active, the clock
+	  is limited to stock max speeds
+
 config CPU_VOLTAGE_TABLE
 	bool "Enable CPU Voltage Table via sysfs for adjustements"
 	default n
 	help
-	DTS based kernel User Votlage Control
+	  DTS based kernel User Votlage Control
 
 config MSM_AVS_HW
 	bool "Enable Adaptive Voltage Scaling (AVS)"
